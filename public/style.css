@@ -1,0 +1,253 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Noto Serif", serif;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Instrument Serif", serif;
+  font-weight: normal;
+}
+
+input, button {
+  font-family: inherit;
+  font-size: 1em;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#root main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+#root.error main {
+  justify-content: center;
+  width: calc(100% - 2rem);
+  max-width: 40rem;
+  margin: 0 auto;
+}
+#root.error main h1 {
+  font-size: 12rem;
+  text-align: center;
+}
+#root.error main p {
+  color: #555;
+  margin-top: -4rem;
+  font-size: 1.5rem;
+  text-align: center;
+  hyphens: auto;
+}
+
+#root.home main {
+  justify-content: center;
+}
+#root.home main img {
+  height: 8rem;
+}
+#root.home main h1 {
+  font-size: 3rem;
+}
+#root.home main p {
+  margin-top: -1rem;
+}
+
+#root.loading main {
+  justify-content: center;
+}
+#root.loading main .icon {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+}
+#root.loading main .icon::before, #root.loading main .icon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ddd;
+  animation: grow 2s ease-out infinite;
+}
+#root.loading main .icon::after {
+  animation-delay: -1s;
+}
+@keyframes grow {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+#root.person main {
+  justify-content: center;
+  width: calc(100% - 2rem);
+  max-width: 40rem;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+#root.person main h1 {
+  width: 100%;
+  font-size: 4rem;
+  font-family: "Instrument Serif", serif;
+  text-align: center;
+  hyphens: auto;
+}
+#root.person main .details {
+  width: 100%;
+  text-align: center;
+  hyphens: auto;
+}
+#root.person main.loading h1, #root.person main.loading .details {
+  background-image: linear-gradient(90deg, #eee 0%, #ccc 50%, #eee 100%);
+  background-size: 1000px;
+  border-radius: 0.5rem;
+  animation: wait 1s infinite linear;
+}
+@keyframes wait {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -1000px;
+  }
+}
+#root.person main img {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 30rem;
+  border-radius: 0.5rem;
+  transition: filter 0.3s;
+}
+#root.person main img.bw {
+  filter: grayscale(1);
+}
+#root.person main .about {
+  text-align: center;
+  max-width: 30rem;
+  padding: 1rem 2rem;
+  border: 2px solid #eee;
+  border-radius: 0.5rem;
+}
+#root.person main .about h3 {
+  font-size: 2rem;
+  font-family: "Instrument Serif", serif;
+}
+#root.person main .about p {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.5333333333);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  background-color: #eee;
+  color: #888;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-between;
+}
+header a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Instrument Serif", serif;
+  font-size: 1.5rem;
+}
+header a:not(:hover) {
+  text-decoration: none;
+}
+header a img {
+  height: 2.5rem;
+}
+header .search {
+  font-size: 0.9rem;
+}
+header .search input {
+  padding: 0.2rem 0.5rem;
+}
+header .search button {
+  padding: 0.2rem 0.5rem;
+}
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+  header .search {
+    width: 100%;
+  }
+  header .search input {
+    flex-grow: 1;
+  }
+}
+
+.search {
+  display: flex;
+  gap: 0.2rem;
+  border: 2px solid #ddd;
+  border-radius: 5000px;
+  padding: 0.2rem;
+  transition: border-color 0.3s;
+}
+.search:has(input:focus) {
+  border-color: #aaa;
+}
+.search input {
+  padding: 0.5rem 1rem;
+  border-radius: 5000px;
+  min-width: 0;
+}
+.search input:focus {
+  outline: none;
+}
+.search button {
+  padding: 0.5rem 1rem;
+  background-color: #ddd;
+  color: #555;
+  border-radius: 5000px;
+}
+.search button:focus {
+  outline: 2px solid #aaa;
+}

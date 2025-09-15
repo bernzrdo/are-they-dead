@@ -1,0 +1,32 @@
+
+.search {
+
+    display: flex;
+    gap: .2rem;
+
+    border: 2px solid #ddd;
+    border-radius: 5000px;
+    padding: .2rem;
+
+    transition: border-color .3s;
+    &:has(input:focus) { border-color: #aaa }
+
+    input {
+        padding: .5rem 1rem;
+        border-radius: 5000px;
+        min-width: 0;
+        &:focus { outline: none }
+    }
+
+    button {
+        
+        padding: .5rem 1rem;
+        background-color: #ddd;
+        color: #555;
+        border-radius: 5000px;
+
+        &:focus { outline: 2px solid #aaa }
+
+    }
+
+}

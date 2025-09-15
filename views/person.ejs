@@ -1,0 +1,24 @@
+<%- include('layout/header', { title: `Is ${person.name} Dead?`, css: ['person'] }) %>
+
+<main>
+
+    <div class="status">
+        <%= isEvil ? (
+            death.died ? `${person.name} is dead!` : `Unfortunately, ${person.name} is still alive.`
+        ) : (
+            death.died ? `${person.name} has passed away.` : `${person.name} is still alive.`
+        ) %>
+    </div>
+    
+    <% if(death.img){ %>
+        <img class="photo <%= isEvil != death.died ? 'bw' : '' %>" src="<%= death.img %>" alt="<%= person.name %>">
+    <% } %>
+
+    <div class="about">
+        <div class="name"><%= person.name %></div>
+        <div class="description"><%= person.description %></div>
+    </div>
+
+</main>
+
+<%- include('layout/footer', { js: isEvil && death.died ? ['confetti'] : [] }) %>

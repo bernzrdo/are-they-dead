@@ -1,0 +1,36 @@
+
+#root.loading main {
+
+    justify-content: center;
+
+    .icon {
+
+        position: relative;
+        width: 5rem;
+        height: 5rem;
+        
+        &::before, &::after {
+            
+            content: '';
+            
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #ddd;
+            animation: grow 2s ease-out infinite;
+
+        }
+
+        &::after {
+            animation-delay: -1s;
+        }
+
+    }
+
+    @keyframes grow {
+        from { transform: scale(0); opacity: 1 }
+          to { transform: scale(1); opacity: 0 }
+    }
+
+}

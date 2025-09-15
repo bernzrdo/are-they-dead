@@ -1,0 +1,77 @@
+
+#root.person main {
+
+    justify-content: center;
+
+    width: calc(100% - 2rem);
+    max-width: 40rem;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+
+    h1 {
+        
+        width: 100%;
+        
+        font-size: 4rem;
+        font-family: 'Instrument Serif', serif;
+        text-align: center;
+        hyphens: auto;
+
+    }
+
+    .details {
+        width: 100%;
+        text-align: center;
+        hyphens: auto;
+    }
+
+    &.loading h1, &.loading .details {
+
+        background-image: linear-gradient(90deg, #eee 0%, #ccc 50%, #eee 100%);
+        background-size: 1000px;
+        border-radius: .5rem;
+
+        animation: wait 1s infinite linear;
+        @keyframes wait {
+            from { background-position-x: 0 }
+                to { background-position-x: -1000px}
+        }
+
+    }
+
+    img {
+
+        position: relative;
+        overflow: hidden;
+        
+        max-width: 100%;
+        max-height: 30rem;
+        border-radius: .5rem;
+        
+        transition: filter .3s;
+        &.bw { filter: grayscale(1) }
+
+    }
+
+    .about {
+
+        text-align: center;
+
+        max-width: 30rem;
+        padding: 1rem 2rem;
+        border: 2px solid #eee;
+        border-radius: .5rem;
+
+        h3 {
+            font-size: 2rem;
+            font-family: 'Instrument Serif', serif;
+        }
+
+        p {
+            font-size: .9rem;
+            color: #0008;
+        }
+
+    }
+
+}
