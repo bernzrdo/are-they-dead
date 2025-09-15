@@ -70,7 +70,6 @@ export async function getDeath(id: string){
 }
 
 export function filterCache(query: string){
-    console.log(cache, query)
     query = query.toLowerCase()
     return Object.values(cache)
         .filter(c=>c.type == 'person' && c.person.name.toLowerCase().startsWith(query))

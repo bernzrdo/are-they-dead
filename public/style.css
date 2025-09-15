@@ -47,17 +47,15 @@ button {
 #root main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   flex-grow: 1;
-}
-
-#root.error main {
-  justify-content: center;
   width: calc(100% - 2rem);
   max-width: 40rem;
   margin: 0 auto;
 }
+
 #root.error main h1 {
   font-size: 12rem;
   text-align: center;
@@ -70,22 +68,18 @@ button {
   hyphens: auto;
 }
 
-#root.home main {
-  justify-content: center;
-}
 #root.home main img {
   height: 8rem;
 }
 #root.home main h1 {
   font-size: 3rem;
+  text-align: center;
 }
 #root.home main p {
   margin-top: -1rem;
+  text-align: center;
 }
 
-#root.loading main {
-  justify-content: center;
-}
 #root.loading main .icon {
   position: relative;
   width: 5rem;
@@ -115,10 +109,6 @@ button {
 }
 
 #root.person main {
-  justify-content: center;
-  width: calc(100% - 2rem);
-  max-width: 40rem;
-  margin: 0 auto;
   padding-bottom: 1rem;
 }
 #root.person main h1 {
