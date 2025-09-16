@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { render } from './render'
 import { imageUrl } from './image'
 import { filterCache } from './api'
+import people from './people'
 
 const directory = Router()
 
@@ -22,12 +23,16 @@ directory.get('/start', (req, res)=>{
 
 directory.get('/:query', (req, res)=>{
 
-    const { query } = req.params
+    let { query } = req.params
+    query = query.toLowerCase()
 
-    const people = filterCache(query)
+    const results = [...new Set([
+        ...filterCache(query),
+        ...(people.filter(n=>n.toLowerCase().startsWith(query)))
+    ])].sort()
 
-    const content = people.length > 0
-        ? people.map(name=>`<a href="/${name}">${name}</a>`).join('')
+    const content = results.length > 0
+        ? results.map(name=>`<a href="/${name}">${name}</a>`).join('')
         : `No people found starting with "${query}".`
 
     res.send(render({
